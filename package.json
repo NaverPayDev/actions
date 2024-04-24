@@ -33,7 +33,6 @@
         "@naverpay/prettier-config": "^0.0.2",
         "@size-limit/preset-big-lib": "^11.0.2",
         "glob": "^9.3.4",
-        "husky": "^8.0.3",
         "lint-staged": "^15.0.1",
         "size-limit": "^11.0.2",
         "turbo": "^1.10.16",
@@ -42,6 +41,7 @@
     "packageManager": "pnpm@8.14.3",
     "dependencies": {
         "@naverpay/commit-helper": "^1.0.0",
+        "@vercel/ncc": "^0.38.1",
         "lefthook": "^1.6.10"
     }
 }
