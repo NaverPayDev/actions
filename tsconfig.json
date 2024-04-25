@@ -2,13 +2,17 @@
     "compilerOptions": {
         "baseUrl": ".",
         "target": "ES2015",
+        "module": "CommonJS",
         "outDir": "./dist",
         "strict": true,
         "allowJs": true,
         "incremental": true,
         "declaration": true,
-        "allowSyntheticDefaultImports": true,
-        "moduleResolution": "node"
+        "paths": {
+            "$actions/apis": ["libs/apis/index.ts"],
+            "$actions/types": ["libs/types/index.ts"],
+            "$actions/utils": ["libs/utils/index.ts"]
+        }
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     "exclude": ["dist"]
