@@ -12,6 +12,7 @@
         "build": "turbo run build",
         "prepare": "lefthook install",
         "action1": "pnpm --filter action1",
+        "action2": "pnpm --filter action2",
         "test": "turbo run test",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",
