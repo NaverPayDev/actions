@@ -8,9 +8,10 @@
         "dist"
     ],
     "scripts": {
-        "build": "tsc --build",
+        "build": "npx ncc build src/index.ts -t --minify",
         "clean": "rm -rf dist"
     },
-    "devDependencies": {},
-    "dependencies": {}
+    "dependencies": {
+        "@vercel/ncc": "^0.38.1"
+    }
 }
