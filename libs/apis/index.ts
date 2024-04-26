@@ -1,10 +1,11 @@
-import createIssueFetchers from './issueFetchers'
-import createRepoFetchers from './repoFetchers'
-import createPullFetchers from './pullFetchers'
-import createCheckFetchers from './checkFetchers'
-import createUserFetchers from './userFetchers'
-import createTeamFetchers from './teamFetchers'
 import {getOctokitRestCommonParams} from '$actions/utils'
+
+import createCheckFetchers from './checkFetchers'
+import createIssueFetchers from './issueFetchers'
+import createPullFetchers from './pullFetchers'
+import createRepoFetchers from './repoFetchers'
+import createTeamFetchers from './teamFetchers'
+import createUserFetchers from './userFetchers'
 
 const octokitRestCommonParams = getOctokitRestCommonParams()
 

@@ -1,9 +1,9 @@
-export type OctokitRestCommonParamsType = {
+export interface OctokitRestCommonParamsType {
     owner: string
     repo: string
 }
 
-export type CreateIssueParams = {
+export interface CreateIssueParams {
     title: string
     body?: string
     assignee?: string

@@ -1,6 +1,7 @@
-import {OctokitRestCommonParamsType} from '$actions/types'
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+
+import {OctokitRestCommonParamsType} from '$actions/types'
 
 const createCheckFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType) => {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')

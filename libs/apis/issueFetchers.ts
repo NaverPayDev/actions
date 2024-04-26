@@ -1,6 +1,7 @@
-import {CreateIssueParams, OctokitRestCommonParamsType} from '$actions/types'
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+
+import {CreateIssueParams, OctokitRestCommonParamsType} from '$actions/types'
 
 const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType) => {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
