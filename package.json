@@ -1,11 +1,11 @@
 {
-    "name": "ts-monorepo-template",
+    "name": "actions",
     "author": "@NaverPayDev/frontend",
     "repository": {
         "type": "git",
-        "url": "https://github.com/NaverPayDev/ts-monorepo-template.git"
+        "url": "https://github.com/NaverPayDev/actions.git"
     },
-    "description": "ts-monorepo-template",
+    "description": "actions",
     "version": "0.0.0",
     "scripts": {
         "start": "turbo run start",
@@ -47,5 +47,9 @@
         "lefthook": "^1.6.10",
         "@actions/core": "^1.10.1",
         "@actions/github": "^6.0.0"
+    },
+    "engines": {
+        "node": "^18.12.0",
+        "pnpm": "^8.14.3"
     }
 }
