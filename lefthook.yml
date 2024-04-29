@@ -1,0 +1,14 @@
+pre-commit:
+    parallel: true
+    commands:
+        block-commit:
+            only:
+                - ref: main
+            run: exit 1
+            fail_text: "You can't commit to main/develop branch directly. Please use Pull Request."
+        lint:
+            run: npx lint-staged
+commit-msg:
+    scripts:
+        'commithelper.sh':
+            runner: bash

@@ -1,0 +1,8 @@
+{
+    "protect": ["main"],
+    "rules": {
+        "feature": null,
+        "feat": null,
+        "epic": null
+    }
+}
