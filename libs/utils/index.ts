@@ -1,4 +1,4 @@
-import * as github from '@actions/github'
+import github from '@actions/github'
 
 export const getOctokitRestCommonParams = () => {
     const {

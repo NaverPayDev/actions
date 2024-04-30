@@ -8,6 +8,7 @@
         "allowJs": true,
         "incremental": true,
         "declaration": true,
+        "allowSyntheticDefaultImports": true,
         "paths": {
             "$actions/apis": ["libs/apis/index.ts"],
             "$actions/types": ["libs/types/index.ts"],
