@@ -10,6 +10,7 @@
     "scripts": {
         "start": "turbo run start",
         "build": "turbo run build",
+        "prepare": "lefthook install",
         "test": "turbo run test",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",
@@ -38,5 +39,9 @@
         "turbo": "^1.10.16",
         "typescript": "^5.2.2"
     },
-    "packageManager": "pnpm@8.14.3"
+    "packageManager": "pnpm@8.14.3",
+    "dependencies": {
+        "@naverpay/commit-helper": "^1.0.0",
+        "lefthook": "^1.6.10"
+    }
 }
