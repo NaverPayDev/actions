@@ -6,9 +6,7 @@
         "strict": true,
         "allowJs": true,
         "incremental": true,
-        "declaration": true,
-        "allowSyntheticDefaultImports": true,
-        "moduleResolution": "node"
+        "declaration": true
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     "exclude": ["dist"]

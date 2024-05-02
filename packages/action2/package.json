@@ -1,6 +1,6 @@
 {
-    "name": "@naverpay/actions/action1",
-    "description": "custom action 1",
+    "name": "@naverpay/actions/action2",
+    "description": "custom action 2",
     "sideEffects": false,
     "version": "0.0.1",
     "main": "./dist/index.js",
