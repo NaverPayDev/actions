@@ -1,7 +1,7 @@
 import core from '@actions/core'
 import github from '@actions/github'
 
-import {CreateIssueParams, OctokitRestCommonParamsType} from '$actions/types'
+import {CommonIssueParams, IssueState, OctokitRestCommonParamsType, UpdateIssueParams} from '$actions/types'
 
 const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType) => {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
@@ -10,6 +10,10 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         issue: {number: issue_number},
     } = github.context
 
+    /**
+     * 특정 이슈 정보를 가져옵니다.
+     * see) https://docs.github.com/ko/rest/issues/issues?apiVersion=2022-11-28#get-an-issue
+     */
     const getIssueInfo = async () => {
         const {data: issueInfo} = await issueApi.get({
             ...octokitRestCommonParams,
@@ -19,43 +23,44 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         return issueInfo
     }
 
-    const getOpenIssueList = async () => {
+    /**
+     * 레포의 모든 이슈 목록을 가져옵니다.
+     * issueState 가 없으면 default로 열린 issue만 불러옵니다.
+     * see) https://docs.github.com/ko/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues
+     */
+    const getIssueList = async (state: IssueState | 'all') => {
         const {data: issueList} = await issueApi.listForRepo({
             ...octokitRestCommonParams,
+            state,
         })
 
         return issueList
     }
 
-    const getAllIssueList = async () => {
-        const {data: issueList} = await issueApi.listForRepo({
-            ...octokitRestCommonParams,
-            state: 'all',
-        })
-
-        return issueList
-    }
-
-    const createIssue = async (params: CreateIssueParams) => {
+    /**
+     * 이슈를 생성합니다.
+     * see) https://docs.github.com/ko/rest/issues/issues?apiVersion=2022-11-28#create-an-issue
+     */
+    const createIssue = async (params: CommonIssueParams) => {
         issueApi.create({...octokitRestCommonParams, ...params})
     }
 
-    const closeIssue = async (issueNumber: number) => {
-        issueApi.update({...octokitRestCommonParams, issue_number: issueNumber, state: 'closed'})
+    /**
+     * 이슈를 업데이트 합니다.
+     * see) https://docs.github.com/ko/rest/issues/issues?apiVersion=2022-11-28#update-an-issue
+     */
+    const updateIssue = async ({issueNumber, ...restParams}: UpdateIssueParams) => {
+        issueApi.update({...octokitRestCommonParams, issue_number: issueNumber, ...restParams})
     }
 
-    const replaceLabels = async (issueNumber: number, labels: string[]) => {
-        issueApi.update({...octokitRestCommonParams, issue_number: issueNumber, labels})
-    }
-
-    const changeTitle = async (issueNumber: number, title: string) => {
-        issueApi.update({...octokitRestCommonParams, issue_number: issueNumber, title})
-    }
-
-    const getLabelListOnIssue = async (number?: number) => {
+    /**
+     * 이슈의 라벨 리스트를 조회합니다.
+     * see) https://docs.github.com/ko/rest/issues/labels?apiVersion=2022-11-28#list-labels-for-an-issue
+     */
+    const getLabelListOnIssue = async (issueNumber?: number) => {
         const {data: labelInfos} = await issueApi.listLabelsOnIssue({
             ...octokitRestCommonParams,
-            issue_number: number ?? issue_number,
+            issue_number: issueNumber ?? issue_number,
         })
 
         const labels = labelInfos.map((labelInfo) => labelInfo.name)
@@ -63,22 +68,18 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         return labels
     }
 
-    const getAssigneeListOnIssue = async () => {
-        const {
-            data: {assignees: assigneeInfos},
-        } = await issueApi.get({...octokitRestCommonParams, issue_number})
-
-        if (!assigneeInfos) {
-            return []
-        }
-
-        return assigneeInfos?.map((assigneeInfo) => assigneeInfo.login)
-    }
-
+    /**
+     * 이슈에 assignee를 추가합니다.
+     * see) https://docs.github.com/ko/rest/issues/assignees?apiVersion=2022-11-28#add-assignees-to-an-issue
+     */
     const addAssigneesOnIssue = async (assignees: string[]) => {
         issueApi.addAssignees({...octokitRestCommonParams, issue_number, assignees})
     }
 
+    /**
+     * 이슈에 assignee를 제거합니다.
+     * see) https://docs.github.com/ko/rest/issues/assignees?apiVersion=2022-11-28#remove-assignees-from-an-issue
+     */
     const removeAssigneesOnIssue = async (assignees: string[]) => {
         issueApi.removeAssignees({
             ...octokitRestCommonParams,
@@ -87,23 +88,23 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         })
     }
 
+    /**
+     * 이슈에 comment를 추가합니다.
+     * see) https://docs.github.com/ko/rest/issues/comments?apiVersion=2022-11-28#create-an-issue-comment
+     */
     const addComment = async (body: string) => {
         issueApi.createComment({...octokitRestCommonParams, issue_number, body})
     }
 
     return {
         getIssueInfo,
-        getOpenIssueList,
-        getAllIssueList,
+        getIssueList,
         createIssue,
-        closeIssue,
-        getAssigneeListOnIssue,
+        updateIssue,
         getLabelListOnIssue,
         addAssigneesOnIssue,
         removeAssigneesOnIssue,
         addComment,
-        replaceLabels,
-        changeTitle,
     }
 }
 
