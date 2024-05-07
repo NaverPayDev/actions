@@ -1,11 +1,13 @@
 import core from '@actions/core'
 import github from '@actions/github'
+import {RestEndpointMethodTypes} from '@octokit/rest'
 
 import {CommonIssueParams, IssueState, OctokitRestCommonParamsType, UpdateIssueParams} from '$actions/types'
 
 const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType) => {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
-    const issueApi = github.getOctokit(GITHUB_TOKEN).rest.issues
+    const octokit = github.getOctokit(GITHUB_TOKEN)
+    const issueApi = octokit.rest.issues
     const {
         issue: {number: issue_number},
     } = github.context
@@ -29,10 +31,15 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
      * see) https://docs.github.com/ko/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues
      */
     const getIssueList = async (state: IssueState | 'all') => {
-        const {data: issueList} = await issueApi.listForRepo({
+        const issueList: RestEndpointMethodTypes['issues']['list']['response']['data'] = []
+
+        for await (const response of octokit.paginate.iterator(octokit.rest.issues.list, {
             ...octokitRestCommonParams,
             state,
-        })
+            per_page: 100,
+        })) {
+            issueList.push(...response.data)
+        }
 
         return issueList
     }
