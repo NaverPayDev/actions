@@ -10,7 +10,11 @@ const createPullFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType
         issue: {number: pull_number},
     } = github.context
 
-    const getPullInfo = async () => {
+    /**
+     * pull request 정보를 가져옵니다.
+     * see) https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#get-a-pull-request
+     */
+    const getPullRequestInfo = async () => {
         const {data: pullInfo} = await pullApi.get({
             ...octokitRestCommonParams,
             pull_number,
@@ -19,7 +23,7 @@ const createPullFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType
         return pullInfo
     }
 
-    return {getPullInfo}
+    return {getPullRequestInfo}
 }
 
 export default createPullFetchers
