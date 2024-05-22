@@ -1,0 +1,12 @@
+name: 'do-not-merge-action'
+description: '특정 라벨이 부착된 PR의 병합을 방지합니다.'
+runs:
+    using: 'node20'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
+    BLOCKER_LABEL_NAME:
+        description: 'get blocker label name'
+        required: false

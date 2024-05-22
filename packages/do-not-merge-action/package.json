@@ -1,6 +1,6 @@
 {
-    "name": "@naverpay/actions/action1",
-    "description": "custom action 1",
+    "name": "@naverpay/actions/do-not-merge-action",
+    "description": "특정 라벨이 부착된 PR의 병합을 방지합니다.",
     "sideEffects": false,
     "version": "0.0.1",
     "main": "./dist/index.js",

@@ -1,5 +1,5 @@
-import core from '@actions/core'
-import github from '@actions/github'
+import * as core from '@actions/core'
+import * as github from '@actions/github'
 import {RestEndpointMethodTypes} from '@octokit/rest'
 
 import {CommonIssueParams, IssueState, OctokitRestCommonParamsType, UpdateIssueParams} from '$actions/types'

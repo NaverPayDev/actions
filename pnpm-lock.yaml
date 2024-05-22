@@ -58,13 +58,13 @@ importers:
         specifier: ^5.2.2
         version: 5.3.3
 
-  packages/action1:
+  packages/action2:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
         version: 0.38.1
 
-  packages/action2:
+  packages/do-not-merge-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
