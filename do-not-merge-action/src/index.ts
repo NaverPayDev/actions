@@ -28,8 +28,6 @@ const main = async () => {
     } catch (error) {
         const {message} = error as Error
 
-        /* eslint-disable-next-line no-console */
-        console.log(message)
         core.setFailed(message)
     }
 }
