@@ -12,7 +12,7 @@ jobs:
     pr_label_check:
         runs-on: ubuntu-latest
         steps:
-            - uses: NaverPayDev/actions/packages/do-not-merge-action@feature/9_do_not_merge_action
+            - uses: NaverPayDev/actions/do-not-merge-action@feature/9_do_not_merge_action
               with:
                   BLOCKER_LABEL_NAME: '🚫 DO NOT MERGE'
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
