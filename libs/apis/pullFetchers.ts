@@ -43,7 +43,20 @@ const createPullFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType
         return reviewList
     }
 
-    return {getPullRequestInfo, getPullRequestReviews}
+    /**
+     * pull request 의 특정 approval review를 반려합니다.
+     * see) https://docs.github.com/en/rest/pulls/reviews?apiVersion=2022-11-28#dismiss-a-review-for-a-pull-request
+     */
+    const dismissReview = async (review_id: number) => {
+        await pullApi.dismissReview({
+            ...octokitRestCommonParams,
+            pull_number,
+            review_id,
+            message: 'If you want to approve this pull request, you must leave any comments.',
+        })
+    }
+
+    return {getPullRequestInfo, getPullRequestReviews, dismissReview}
 }
 
 export default createPullFetchers
