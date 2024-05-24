@@ -1,12 +1,14 @@
 {
+    "extends": ["../tsconfig.json"],
     "compilerOptions": {
-        "baseUrl": ".",
         "target": "ES2015",
         "outDir": "./dist",
         "strict": true,
         "allowJs": true,
         "incremental": true,
-        "declaration": true
+        "declaration": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node"
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     "exclude": ["dist"]
