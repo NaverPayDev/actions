@@ -1,5 +1,5 @@
 {
-    "name": "@naverpay/actions/action2",
+    "name": "@naverpay/actions/require-approval-comment-action",
     "description": "custom action 2",
     "sideEffects": false,
     "version": "0.0.1",

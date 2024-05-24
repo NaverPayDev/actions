@@ -1,4 +1,4 @@
 packages:
     - 'apps/*'
-    - 'action2'
+    - 'require-approval-comment-action'
     - 'do-not-merge-action'

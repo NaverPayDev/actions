@@ -58,13 +58,13 @@ importers:
         specifier: ^5.2.2
         version: 5.3.3
 
-  action2:
+  do-not-merge-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
         version: 0.38.1
 
-  do-not-merge-action:
+  require-approval-comment-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
