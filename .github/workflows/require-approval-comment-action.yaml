@@ -1,0 +1,14 @@
+name: dismiss approval review without comment
+
+on:
+    pull_request_review:
+        types:
+            - submitted
+
+jobs:
+    dismiss_approval_review_without_comment:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: NaverPayDev/actions/require-approval-comment-action@feature/8
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
