@@ -1,0 +1,9 @@
+name: 'require-approval-comment-action'
+description: 'comment가 없는 approval을 취소합니다.'
+runs:
+    using: 'node20'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
