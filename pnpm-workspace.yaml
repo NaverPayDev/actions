@@ -1,3 +1,4 @@
 packages:
     - 'apps/*'
-    - 'packages/*'
+    - 'action2'
+    - 'do-not-merge-action'
