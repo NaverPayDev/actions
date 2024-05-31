@@ -1,0 +1,14 @@
+name: auto assign pull request to author
+
+on:
+    pull_request:
+        types:
+            - opened
+
+jobs:
+    auto_assign_pull_request_to_author:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: NaverPayDev/actions/auto-assign-pull-request-to-author-action@feature/11_auto_assign_pull_request_to_author
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
