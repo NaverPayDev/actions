@@ -9,3 +9,5 @@
   - 특정 라벨이 부착된 Pull Request의 병합을 막습니다.
 - [require-approval-comment-action](./require-approval-comment-action/README.md)
   - comment 없는 단순 approve를 반려합니다.
+- [auto-assign-pull-request-to-author-action](./auto-assign-pull-request-to-author-action/README.md)
+  - pull request에 생성자를 자동으로 assign 합니다.
