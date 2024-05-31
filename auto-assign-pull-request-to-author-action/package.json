@@ -1,0 +1,17 @@
+{
+    "name": "@naverpay/actions/auto-assign-pull-request-to-author-action",
+    "description": "Pull Request 생성 시 생성자를 자동 assign 합니다.",
+    "sideEffects": false,
+    "version": "0.0.1",
+    "main": "./dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "npx ncc build src/index.ts -t --minify",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@vercel/ncc": "^0.38.1"
+    }
+}
