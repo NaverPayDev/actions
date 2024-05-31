@@ -1,5 +1,7 @@
 # do-not-merge-action
 
+![stop](./src/assets/stop.png)
+
 ## 설명
 
 - 특정 라벨이 부착된 PullRequest의 workflow를 강제로 실패시켜 병합을 방지합니다.

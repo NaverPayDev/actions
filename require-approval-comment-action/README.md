@@ -1,5 +1,7 @@
 # require-approval-comment-action
 
+![approve](./src/assets/approve.jpg)
+
 ## 설명
 
 - Comment가 작성되지 않은 단순 approve를 반려합니다..
