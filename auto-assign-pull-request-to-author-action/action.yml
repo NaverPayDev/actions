@@ -1,0 +1,15 @@
+name: 'auto-assign-pull-request-to-author-action'
+description: 'Pull Request 생성 시 생성자를 자동 assign 합니다.'
+runs:
+    using: 'node20'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
+    ALLOW_ASSIGNEE_ALREADY_EXIST_CONDITION:
+        description: 'also run when assignee already exists'
+        required: false
+    REPLACE_PREV_ASSIGNEE:
+        description: 'replace prev assigneed assignee to author'
+        required: false

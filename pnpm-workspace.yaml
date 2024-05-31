@@ -1,4 +1,4 @@
 packages:
-    - 'apps/*'
     - 'require-approval-comment-action'
     - 'do-not-merge-action'
+    - 'auto-assign-pull-request-to-author-action'

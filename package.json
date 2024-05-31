@@ -13,6 +13,7 @@
         "prepare": "lefthook install",
         "action:donotmergeaction": "pnpm --filter do-not-merge-action",
         "action:requireapprovalcommentaction": "pnpm --filter require-approval-comment-action",
+        "action:autoassignpullrequesttoauthoraction": "pnpm --filter auto-assign-pull-request-to-author-action",
         "test": "turbo run test",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",
