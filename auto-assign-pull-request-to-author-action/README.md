@@ -28,7 +28,11 @@ jobs:
               with:
                   # github action 실행을 위한 토큰입니다.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+                  # (optional) assignee 가 이미 지정되어 있을때에도 실행할지 여부입니다.
+                  ALLOW_ASSIGNEE_ALREADY_EXIST_CONDITION: false
+                  # (optional) 이미 지정된 assignee를 삭제할지 여부입니다.
+                  REPLACE_PREV_ASSIGNEE: false
+            
 ```
 
 ## 실행 결과

@@ -7,3 +7,9 @@ inputs:
     GITHUB_TOKEN:
         description: 'get github token'
         required: true
+    ALLOW_ASSIGNEE_ALREADY_EXIST_CONDITION:
+        description: 'also run when assignee already exists'
+        required: false
+    REPLACE_PREV_ASSIGNEE:
+        description: 'replace prev assigneed assignee to author'
+        required: false

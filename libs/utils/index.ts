@@ -7,3 +7,7 @@ export const getOctokitRestCommonParams = () => {
 
     return {owner, repo}
 }
+
+export const isTrueString = (value: string) => {
+    return value === 'true'
+}
