@@ -24,7 +24,7 @@ jobs:
     dismiss_approval_review_without_comment:
         runs-on: ubuntu-latest
         steps:
-            - uses: NaverPayDev/actions/prs/require-approval-comment-action@main
+            - uses: NaverPayDev/actions/pr/require-approval-comment-action@main
               with:
                   # github action 실행을 위한 토큰입니다.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -27,7 +27,7 @@ jobs:
     pr_label_check:
         runs-on: ubuntu-latest
         steps:
-            - uses: NaverPayDev/actions/prs/do-not-merge-action@main
+            - uses: NaverPayDev/actions/pr/do-not-merge-action@main
               with:
                   # github action 실행을 위한 토큰입니다.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

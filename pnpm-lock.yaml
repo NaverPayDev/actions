@@ -58,19 +58,19 @@ importers:
         specifier: ^5.2.2
         version: 5.3.3
 
-  prs/auto-assign-pull-request-to-author-action:
+  pr/auto-assign-pull-request-to-author-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
         version: 0.38.1
 
-  prs/do-not-merge-action:
+  pr/do-not-merge-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
         version: 0.38.1
 
-  prs/require-approval-comment-action:
+  pr/require-approval-comment-action:
     dependencies:
       '@vercel/ncc':
         specifier: ^0.38.1
