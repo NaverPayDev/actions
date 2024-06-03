@@ -24,7 +24,7 @@ jobs:
     auto_assign_pull_request_to_author:
         runs-on: ubuntu-latest
         steps:
-            - uses: NaverPayDev/actions/auto-assign-pull-request-to-author-action@main
+            - uses: NaverPayDev/actions/pr/auto-assign-pull-request-to-author-action@main
               with:
                   # github action 실행을 위한 토큰입니다.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
