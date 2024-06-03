@@ -14,3 +14,7 @@
   - comment 없는 단순 approve를 반려합니다.
 - [auto-assign-pull-request-to-author-action](./pr/auto-assign-pull-request-to-author-action/README.md)
   - pull request에 생성자를 자동으로 assign 합니다.
+
+### test
+
+- test용 브랜치
