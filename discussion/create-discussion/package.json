@@ -1,0 +1,17 @@
+{
+    "name": "@naverpay/actions/create-discussion",
+    "description": "discussion을 생성합니다.",
+    "sideEffects": false,
+    "version": "0.0.1",
+    "main": "./dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "npx ncc build src/index.ts -t --minify",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@vercel/ncc": "^0.38.1"
+    }
+}

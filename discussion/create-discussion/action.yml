@@ -1,0 +1,18 @@
+name: 'create-discussion'
+description: 'discussion을 생성합니다.'
+runs:
+    using: 'node16'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
+    TITLE:
+        description: 'get discussion title'
+        required: false
+    BODY:
+        description: 'get discussion body'
+        required: false
+    ADD_DATE_ON_TITLE:
+        description: 'add yyyy.MM.dd(E) date at title'
+        required: false

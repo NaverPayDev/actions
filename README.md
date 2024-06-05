@@ -14,3 +14,8 @@
   - comment 없는 단순 approve를 반려합니다.
 - [auto-assign-pull-request-to-author-action](./pr/auto-assign-pull-request-to-author-action/README.md)
   - pull request에 생성자를 자동으로 assign 합니다.
+
+### [discussions](./discussion)
+
+- [create-discussion](./discussion/create-discussion/README.md)
+  - 미리 작성된 template을 기반으로 discussion을 생성합니다.
