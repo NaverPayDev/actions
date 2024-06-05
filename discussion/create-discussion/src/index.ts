@@ -21,7 +21,8 @@ const main = async () => {
     const now = new Date()
 
     const title = `${shouldAddDateOnTitle ? getDay(now) : ''} ${core.getInput('TITLE') || 'discussion title'}`
-    const BODY = core.getInput('BODY') || 'discussion body'
+    const body = core.getInput('BODY') || 'discussion body'
+    const category = core.getInput('CATEGORY') || 'General'
 
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
     const octokit = github.getOctokit(GITHUB_TOKEN)
@@ -47,13 +48,13 @@ const main = async () => {
         }`)
 
         const categoryId = (
-            discussionCategories.nodes.find(({name}) => name === 'Daily Scrum') ?? discussionCategories.nodes[0]
+            discussionCategories.nodes.find(({name}) => name === category) ?? discussionCategories.nodes[0]
         ).id
 
         await octokit.graphql(
             `mutation {
                 createDiscussion(
-                    input: {repositoryId: "${repoId}", categoryId: "${categoryId}", body: "${BODY}", title: "${title}"}
+                    input: {repositoryId: "${repoId}", categoryId: "${categoryId}", body: "${body}", title: "${title}"}
                 ) {
                     discussion {
                         id

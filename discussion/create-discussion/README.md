@@ -35,6 +35,9 @@ jobs:
                   BODY: '위클리 스크럼'
                   # (optional) true일 시 제목 앞에 YYYY.MM.DD(E) 형태의 날짜를 추가합니다.
                   ADD_DATE_ON_TITLE: true
+                  # (optional) discussion 생성 카테고리입니다. 기본 값은 "General" 입니다.
+                  # 사용 시 discussion에 해당 카테고리가 존재해야합니다.
+                  CATEGORY: 'Weekly Scrum'
 
 
             

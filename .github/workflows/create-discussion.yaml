@@ -15,3 +15,4 @@ jobs:
                   TITLE: '위클리 스크럼'
                   BODY: '위클리 스크럼'
                   ADD_DATE_ON_TITLE: true
+                  CATEGORY: 'Weekly Scrum'

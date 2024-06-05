@@ -16,3 +16,6 @@ inputs:
     ADD_DATE_ON_TITLE:
         description: 'add yyyy.MM.dd(E) date at title'
         required: false
+    CATEGORY:
+        description: 'get discussion category'
+        required: false
