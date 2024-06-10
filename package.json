@@ -14,6 +14,7 @@
         "action:donotmergeaction": "pnpm --filter do-not-merge-action",
         "action:requireapprovalcommentaction": "pnpm --filter require-approval-comment-action",
         "action:autoassignpullrequesttoauthoraction": "pnpm --filter auto-assign-pull-request-to-author-action",
+        "action:creatediscussion": "pnpm --filter create-discussion",
         "test": "turbo run test",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",
@@ -46,8 +47,10 @@
         "@actions/core": "^1.10.1",
         "@actions/github": "^6.0.0",
         "@naverpay/commit-helper": "^1.0.0",
+        "@octokit/graphql-schema": "^15.18.0",
         "@octokit/rest": "^20.1.1",
         "@vercel/ncc": "^0.38.1",
+        "date-fns": "^3.6.0",
         "lefthook": "^1.6.10"
     },
     "engines": {

@@ -1,0 +1,16 @@
+name: create discussion
+
+on:
+    workflow_dispatch:
+
+jobs:
+    create-discussion:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: NaverPayDev/actions/discussion/create-discussion@main
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  TITLE: '위클리 스크럼'
+                  BODY: '위클리 스크럼'
+                  ADD_DATE_ON_TITLE: true
+                  CATEGORY: 'Weekly Scrum'
