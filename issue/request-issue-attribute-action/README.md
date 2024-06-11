@@ -38,3 +38,5 @@ jobs:
 ```
 
 ## 실행 결과
+
+![example](./src/assets/example.png)
