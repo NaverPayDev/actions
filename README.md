@@ -6,6 +6,11 @@
 
 ## 관리 중인 액션 목록
 
+### [Issues](./issue)
+
+- [request-issue-attribute-action](./issue/request-issue-attribute-action/README.md)
+  - issue 생성 시 없는 내용에 대해 작성자에게 작성 요청 comment 를 생성합니다.
+
 ### [Pull Requests](./pr)
 
 - [do-not-merge-action](./pr/do-not-merge-action/README.md)
