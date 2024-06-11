@@ -1,0 +1,18 @@
+name: 'request-issue-attribute-action'
+description: 'issue 생성 시 assignee, label, milestone 중 없는 내용에 대해 작성자에게 작성 요청 comment 를 생성합니다.'
+runs:
+    using: 'node20'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
+    CHECK_ASSIGNEE:
+        description: 'check assignee exists'
+        required: false
+    CHECK_LABEL:
+        description: 'check label exists'
+        required: false
+    CHECK_MILESTONE:
+        description: 'check milestone exists'
+        required: false

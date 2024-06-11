@@ -1,3 +1,4 @@
 packages:
     - 'pr/*'
     - 'discussion/*'
+    - 'issue/*'
