@@ -1,0 +1,17 @@
+name: request-issue-attribute-action
+
+on:
+    issue:
+        types:
+            - opened
+
+jobs:
+    request_issue_attribute:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: NaverPayDev/actions/pr/request-issue-attribute-action@main
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CHECK_ASSIGNEE: true
+                  CHECK_LABEL: true
+                  CHECK_MILESTONE: true
