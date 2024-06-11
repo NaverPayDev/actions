@@ -17,7 +17,7 @@ name: request-issue-attribute-action
 
 on:
     # issue가 생성되었을때 실행됩니다.
-    issue:
+    issues:
         types:
             - opened
 

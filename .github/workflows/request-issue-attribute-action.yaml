@@ -1,7 +1,7 @@
 name: request-issue-attribute-action
 
 on:
-    issue:
+    issues:
         types:
             - opened
 
