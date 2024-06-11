@@ -49,7 +49,7 @@ const main = async () => {
         checklist.milestone.exists = !!milestone
 
         const checkFailedString = Object.entries(checklist)
-            .map(([key, {exists, shouldCheck}]) => (exists && shouldCheck ? key : ''))
+            .map(([key, {exists, shouldCheck}]) => (!exists && shouldCheck ? key : ''))
             .filter((value) => !!value)
             .join(', ')
 
