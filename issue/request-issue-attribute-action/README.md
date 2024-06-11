@@ -25,7 +25,7 @@ jobs:
     request_issue_attribute:
         runs-on: ubuntu-latest
         steps:
-            - uses: NaverPayDev/actions/pr/request-issue-attribute-action@main
+            - uses: NaverPayDev/actions/issue/request-issue-attribute-action@main
               with:
                     # github action 실행을 위한 토큰입니다.
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
