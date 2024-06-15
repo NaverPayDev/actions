@@ -1,0 +1,17 @@
+{
+    "name": "@naverpay/actions/delete-stale-branch",
+    "description": "최근 업데이트가 없는 방치된 브랜치를 삭제합니다.",
+    "sideEffects": false,
+    "version": "0.0.1",
+    "main": "./dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "npx ncc build src/index.ts -t --minify",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@vercel/ncc": "^0.38.1"
+    }
+}

@@ -94,6 +94,12 @@ importers:
         specifier: ^0.38.1
         version: 0.38.1
 
+  repo/delete-stale-branch:
+    dependencies:
+      '@vercel/ncc':
+        specifier: ^0.38.1
+        version: 0.38.1
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
