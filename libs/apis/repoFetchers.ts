@@ -37,14 +37,17 @@ const createRepoFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType
 
     /**
      * 레포의 브랜치 목록을 정보를 가져옵니다.
+     * getType이 undefined인 경우 모든 브랜치를 가져옵니다.
      * see) https://docs.github.com/en/rest/branches/branches?apiVersion=2022-11-28#list-branches
      */
-    const getBranches = async () => {
+    const getBranches = async ({getType}: {getType?: 'PROTECTED' | 'UNPROTECTED'}) => {
         const branchList: RestEndpointMethodTypes['repos']['listBranches']['response']['data'] = []
 
+        const protectedBool = getType === 'PROTECTED' ? true : getType === 'UNPROTECTED' ? false : undefined
         for await (const response of octokit.paginate.iterator(repoApi.listBranches, {
             ...octokitRestCommonParams,
             per_page: 100,
+            protected: protectedBool,
         })) {
             branchList.push(...response.data)
         }

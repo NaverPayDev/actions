@@ -21,7 +21,7 @@ const main = async () => {
     } = createFetchers()
 
     try {
-        const branches = await getBranches()
+        const branches = await getBranches({getType: 'UNPROTECTED'})
 
         branches.forEach(async ({name}) => {
             const branchInfo = await getBranch(name)
