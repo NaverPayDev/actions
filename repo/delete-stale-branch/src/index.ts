@@ -26,12 +26,13 @@ const main = async () => {
         branches.forEach(async ({name}) => {
             const branchInfo = await getBranch(name)
 
-            const recentCommitDateTime = new Date(
-                branchInfo.commit.commit.committer?.date || new Date().toString(),
-            ).getTime()
+            const recentCommitDate = branchInfo.commit.commit.committer?.date || new Date().toString()
+            const recentCommitDateTime = new Date(recentCommitDate).getTime()
 
             /** 브랜치 최신 커밋까지 기간이 기준 시간보다 길면 삭제합니다. */
             if (currentDateTime - recentCommitDateTime > staleMonth * MONTH_TO_MS) {
+                /* eslint-disable-next-line no-console */
+                console.log(`${recentCommitDate}에 가장 최근 작업이 이루어진 ${name} 브랜치 삭제`)
                 await deleteBranch(name)
             }
         })
