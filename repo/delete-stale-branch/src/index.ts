@@ -5,14 +5,12 @@ import {getOctokitRestCommonParams} from '$actions/utils'
 
 import {DEFAULT_STALE_MONTH, MONTH_TO_MS} from './constants'
 
-const validateRegex = (regexString: string): RegExp | null => {
+const validateRegex = (regexString: string) => {
     try {
         const regex = new RegExp(regexString)
         return regex
-    } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log('정규식이 올바르지 않아 적용되지 않습니다')
-        return null
+    } catch {
+        throw new Error('정규식이 올바르지 않습니다.')
     }
 }
 
