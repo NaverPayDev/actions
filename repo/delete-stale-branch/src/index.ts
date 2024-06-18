@@ -32,13 +32,18 @@ const main = async () => {
     const currentDateTime = new Date().getTime()
 
     const {
-        repoFetchers: {getBranch, getBranches, deleteBranch},
+        repoFetchers: {getBranch, getBranches, deleteBranch, getRepoInfo},
     } = createFetchers()
 
     try {
+        const {default_branch: defaultBranch} = await getRepoInfo()
         const branches = await getBranches({getType: 'UNPROTECTED'})
 
         branches.forEach(async ({name}) => {
+            if (name === defaultBranch) {
+                return
+            }
+
             if (regex && regex.test(name)) {
                 return
             }
