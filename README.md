@@ -24,3 +24,8 @@
 
 - [create-discussion](./discussion/create-discussion/README.md)
   - 미리 작성된 template을 기반으로 discussion을 생성합니다.
+
+### [repos](./repo)
+
+- [delete-stale-branch](./repo/delete-stale-branch/README.md)
+  - 최근 업데이트가 없는 방치된 브랜치를 삭제합니다.

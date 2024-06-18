@@ -1,0 +1,15 @@
+name: 'delete-stale-branch'
+description: '최근 업데이트가 없는 방치된 브랜치를 삭제합니다.'
+runs:
+    using: 'node20'
+    main: 'dist/index.js'
+inputs:
+    GITHUB_TOKEN:
+        description: 'get github token'
+        required: true
+    STALE_MONTH:
+        description: 'stale branch judge standard.'
+        required: false
+    EXCLUDE_BRANCH_NAME_REG:
+        description: 'regular expression for excluding specific branch deletion'
+        required: false

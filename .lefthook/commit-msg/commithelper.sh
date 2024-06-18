@@ -6,3 +6,4 @@ npm run action:requireapprovalcommentaction build
 npm run action:autoassignpullrequesttoauthoraction build
 npm run action:creatediscussion build
 npm run action:requestissueattributeaction build
+npm run action:deletestalebranch build

@@ -16,6 +16,7 @@
         "action:autoassignpullrequesttoauthoraction": "pnpm --filter auto-assign-pull-request-to-author-action",
         "action:creatediscussion": "pnpm --filter create-discussion",
         "action:requestissueattributeaction": "pnpm --filter request-issue-attribute-action",
+        "action:deletestalebranch": "pnpm --filter delete-stale-branch",
         "test": "turbo run test",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",

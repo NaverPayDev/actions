@@ -1,0 +1,15 @@
+name: delete stale branch
+
+on:
+    schedule:
+        - cron: '0 0 1 * *' # 매달 1일 오전 9시
+    workflow_dispatch:
+
+jobs:
+    delete_stale_branch:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: NaverPayDev/actions/repo/delete-stale-branch@main
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  STALE_MONTH: 3
