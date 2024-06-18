@@ -39,12 +39,11 @@ const main = async () => {
         const {default_branch: defaultBranch} = await getRepoInfo()
         const branches = await getBranches({getType: 'UNPROTECTED'})
 
-        branches.forEach(async ({name}) => {
-            if (name === defaultBranch) {
-                return
-            }
+        /** 정규식에 포함되지 않는 브랜치만 대상으로 필터링 합니다 */
+        const filteredBranches = regex ? branches.filter(({name}) => !regex.test(name)) : branches
 
-            if (regex && regex.test(name)) {
+        filteredBranches.forEach(async ({name}) => {
+            if (name === defaultBranch) {
                 return
             }
 
