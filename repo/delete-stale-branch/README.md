@@ -34,7 +34,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
                   # (optional) 삭제의 기준이 될 개월 수입니다. 기본 값은 3개월 입니다.
                   STALE_MONTH: 3
-                  # (optional) 삭제에서 제외할 브랜치 이름 정규식입니다. 올바른 Globs 문법이 아니면 무시됩니다.
+                  # (optional) 삭제에서 제외할 브랜치 이름 정규식입니다. prop으로 주입되었으나 올바른 문법이 아니라면 액션 수행이 중지됩니다.
                   EXCLUDE_BRANCH_NAME_REG: '^release'
 
 ```
