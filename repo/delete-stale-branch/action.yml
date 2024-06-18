@@ -10,3 +10,6 @@ inputs:
     STALE_MONTH:
         description: 'stale branch judge standard.'
         required: false
+    EXCLUDE_BRANCH_NAME_REG:
+        description: 'regular expression for excluding specific branch deletion'
+        required: false

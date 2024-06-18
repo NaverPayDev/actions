@@ -5,6 +5,17 @@ import {getOctokitRestCommonParams} from '$actions/utils'
 
 import {DEFAULT_STALE_MONTH, MONTH_TO_MS} from './constants'
 
+const validateRegex = (regexString: string): RegExp | null => {
+    try {
+        const regex = new RegExp(regexString)
+        return regex
+    } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log('정규식이 올바르지 않아 적용되지 않습니다')
+        return null
+    }
+}
+
 const main = async () => {
     const octokitRestCommonParams = getOctokitRestCommonParams()
 
@@ -14,6 +25,10 @@ const main = async () => {
     }
 
     const staleMonth = Number(core.getInput('STALE_MONTH')) || DEFAULT_STALE_MONTH
+    const regexString = core.getInput('EXCLUDE_BRANCH_NAME_REG')
+
+    const regex = !!regexString && validateRegex(regexString)
+
     const currentDateTime = new Date().getTime()
 
     const {
@@ -24,6 +39,10 @@ const main = async () => {
         const branches = await getBranches({getType: 'UNPROTECTED'})
 
         branches.forEach(async ({name}) => {
+            if (regex && regex.test(name)) {
+                return
+            }
+
             const branchInfo = await getBranch(name)
 
             const recentCommitDate = branchInfo.commit.commit.committer?.date || new Date().toString()
