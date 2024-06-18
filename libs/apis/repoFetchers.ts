@@ -60,7 +60,7 @@ const createRepoFetchers = (octokitRestCommonParams: OctokitRestCommonParamsType
      * see) https://docs.github.com/en/rest/git/refs?apiVersion=2022-11-28#delete-a-reference
      */
     const deleteBranch = async (branch: string) => {
-        await octokit.request('DELETE /repos/{owner}/{repo}/git/refs/{ref}', {
+        await octokit.request('DELETE /repos/{owner}/{repo}/git/refs/heads/{ref}', {
             ...octokitRestCommonParams,
             ref: branch,
         })
