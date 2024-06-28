@@ -14,4 +14,4 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CHECK_ASSIGNEE: true
                   CHECK_LABEL: true
-                  CHECK_MILESTONE: true
+                  CHECK_MILESTONE: false
