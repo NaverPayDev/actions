@@ -1,0 +1,26 @@
+name: add-action-build-result
+
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+
+jobs:
+    build-and-add-result:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.head_ref }}
+            - name: SetupPnpm
+              uses: pnpm/action-setup@v3
+              with:
+                  version: 8
+            - run: |
+                  pnpm install && pnpm run build
+                  git config --global user.name 'seunghyun-kevinkim-naver'
+                  git config --global user.email 'seunghyun.kevinkim@navercorp.com'
+                  git add .
+                  git commit -m "✨ add action build result"
+                  git push origin ${{ github.head_ref }}
