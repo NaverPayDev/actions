@@ -29,3 +29,5 @@
 
 - [delete-stale-branch](./repo/delete-stale-branch/README.md)
   - 최근 업데이트가 없는 방치된 브랜치를 삭제합니다.
+
+- readme 수정 테스트
