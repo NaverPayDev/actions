@@ -19,8 +19,12 @@ jobs:
                   version: 8
             - run: |
                   pnpm install && pnpm run build
-                  git config --global user.name 'seunghyun-kevinkim-naver'
-                  git config --global user.email 'seunghyun.kevinkim@navercorp.com'
                   git add .
-                  git commit -m "✨ add action build result"
-                  git push origin ${{ github.head_ref }}
+                  if ! git diff-index --quiet HEAD; then
+                    git config --global user.name 'seunghyun-kevinkim-naver'
+                    git config --global user.email 'seunghyun.kevinkim@navercorp.com'
+                    git commit -m "✨ add action build result"
+                    git push origin ${{ github.head_ref }}
+                  else
+                    echo "Action 빌드 결과물에 변경점이 없습니다."
+                  fi
