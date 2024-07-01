@@ -53,6 +53,9 @@ const main = async () => {
             .filter((value) => !!value)
             .join(', ')
 
+        // eslint-disable-next-line no-console
+        console.log('1')
+
         await addComment(`@${actor} 님, 이슈에 ${checkFailedString} 을 작성해 주세요.`)
     } catch (error) {
         const {message} = error as Error
