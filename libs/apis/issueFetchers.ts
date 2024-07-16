@@ -103,6 +103,16 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         issueApi.createComment({...octokitRestCommonParams, issue_number, body})
     }
 
+    /**
+     * 이슈가 존재하는 레포의 label 목록을 가져옵니다.
+     * see) https://docs.github.com/en/rest/issues/labels#list-labels-for-a-repository
+     */
+    const getRepoLabels = async () => {
+        const {data: repoLabels} = await issueApi.listLabelsForRepo({...octokitRestCommonParams})
+
+        return repoLabels
+    }
+
     return {
         getIssueInfo,
         getIssueList,
@@ -112,6 +122,7 @@ const createIssueFetchers = (octokitRestCommonParams: OctokitRestCommonParamsTyp
         addAssigneesOnIssue,
         removeAssigneesOnIssue,
         addComment,
+        getRepoLabels,
     }
 }
 
