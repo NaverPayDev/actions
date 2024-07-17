@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import {DiscussionCategory} from '@octokit/graphql-schema'
+import {DiscussionCategory, CreateDiscussionPayload} from '@octokit/graphql-schema'
 
 import createFetchers from '$actions/apis'
 import {getOctokitRestCommonParams, isTrueString} from '$actions/utils'
@@ -28,6 +28,7 @@ const main = async () => {
     const octokit = github.getOctokit(GITHUB_TOKEN)
 
     const {
+        issueFetchers: {getRepoLabels},
         repoFetchers: {getRepoInfo},
     } = createFetchers()
 
@@ -51,7 +52,7 @@ const main = async () => {
             discussionCategories.nodes.find(({name}) => name === category) ?? discussionCategories.nodes[0]
         ).id
 
-        await octokit.graphql(
+        const response = await octokit.graphql<{createDiscussion: CreateDiscussionPayload}>(
             `mutation {
                 createDiscussion(
                     input: {repositoryId: "${repoId}", categoryId: "${categoryId}", body: "${body}", title: "${title}"}
@@ -64,6 +65,38 @@ const main = async () => {
             {
                 repo,
                 owner,
+                headers: {
+                    authorization: GITHUB_TOKEN,
+                },
+            },
+        )
+
+        const labelName = core.getInput('LABEL')
+
+        if (!labelName) {
+            return
+        }
+
+        const discussionId = response.createDiscussion.discussion?.id
+
+        const labels = await getRepoLabels()
+        const labelId = labels.find(({name}) => name === labelName)?.node_id
+
+        if (!labelId) {
+            return
+        }
+
+        await octokit.graphql(
+            `mutation($labelableId: ID!, $labelIds: [ID!]!) {
+                addLabelsToLabelable(input: {labelableId: $labelableId, labelIds: $labelIds}) {
+                    clientMutationId
+                }
+            }`,
+            {
+                repo,
+                owner,
+                labelableId: discussionId,
+                labelIds: [labelId],
                 headers: {
                     authorization: GITHUB_TOKEN,
                 },
