@@ -19,3 +19,6 @@ inputs:
     CATEGORY:
         description: 'get discussion category'
         required: false
+    LABEL:
+        description: 'get label name'
+        required: false

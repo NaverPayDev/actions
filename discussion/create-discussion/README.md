@@ -38,6 +38,8 @@ jobs:
                   # (optional) discussion 생성 카테고리입니다. 기본 값은 "General" 입니다.
                   # 사용 시 discussion에 해당 카테고리가 존재해야합니다.
                   CATEGORY: 'Weekly Scrum'
+                  # (optional) discussion 생성시 부착할 라벨 명 입니다.
+                  LABEL: '논의'
 
 
             
